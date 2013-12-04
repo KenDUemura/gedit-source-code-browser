@@ -413,7 +413,7 @@ class SourceCodeBrowserPlugin(GObject.Object, Gedit.WindowActivatable, PeasGtk.C
                         contents = document.get_text(document.get_start_iter(),
                                                      document.get_end_iter(),
                                                      True)
-                        os.write(fd, contents)
+                        os.write(fd, contents.encode('ascii'))
                         os.close(fd)
                         while Gtk.events_pending():
                             Gtk.main_iteration()
